@@ -52,7 +52,10 @@ public class FibonacciSequence extends Sequence{
        return this.get_element();
    }
    public int get_sum_of_elements(int start_index, int end_index){
-      // implement this function
-      return 0;
+      get_element_by_index(start_index);
+      for(int i = 0; i < end_index; i++){
+         get_next_element();
+      }
+      return current_element;
    }
 }
