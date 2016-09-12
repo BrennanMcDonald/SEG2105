@@ -41,8 +41,10 @@ public class FibonacciSequence extends Sequence{
       return current_element;
    }
    public int get_element_by_index(int index){
-      if (Math.abs(index-0) < Math.abs(index-indx)){
+      if (index < Math.abs(index-indx)){
          reset();
+         System.out.println("reset");
+         System.out.println(Math.abs(index-indx));
          for(int i = 0; i < index; i++){
             get_next_element();
          }
@@ -64,7 +66,10 @@ public class FibonacciSequence extends Sequence{
       return current_element;
    }
    public int get_sum_of_elements(int start_index, int end_index){
-      // implement this function
-      return 0;
+      get_element_by_index(start_index);
+      for(int i = 0; i < end_index; i++){
+         get_next_element();
+      }
+      return current_element;
    }
 }
