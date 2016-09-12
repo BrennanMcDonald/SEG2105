@@ -43,12 +43,18 @@ public class FibonacciSequence extends Sequence{
    public int get_element_by_index(int index){
       if (Math.abs(index-0) < Math.abs(index-indx)){
          reset();
-         for(int i = 0; i < Math.abs(index-indx); i++){
+         for(int i = 0; i < index; i++){
             get_next_element();
          }
       } else {
-         for(int i = 0; i < Math.abs(index-indx); i++){
-            get_next_element();
+         if (indx < index){
+            for(int i = 0; i < Math.abs(index-indx); i++){
+               get_next_element();
+            }
+         } else {
+            for(int i = 0; i < Math.abs(index-indx); i++){
+               get_prev_element();
+            }
          }
       }
       // find out which is closer to the required index: 0 or indx

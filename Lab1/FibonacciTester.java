@@ -20,7 +20,7 @@ public class FibonacciTester {
          if (prev != ref_Values[i-1]) {
             System.out.println("Error F" + (i-1) + " is supposed to be " + ref_Values[i-1] + " but " + prev+ " was calculated instead!");
          }
-         if (seq.get_index() != i+1) {
+         if (seq.get_index() != i-1) {
             System.out.println("get_index Error2 index value retrieved " + seq.get_index() + " is different from expected " + (i+1));            
          }
       }
