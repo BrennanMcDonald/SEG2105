@@ -55,7 +55,7 @@ public class FibonacciSequence extends Sequence{
       int sum = 0;
       get_element_by_index(start_index);
       for(int i = 0; i < end_index; i++){
-         sum += current_element
+         sum += current_element;
          get_next_element();
       }
       return sum;
