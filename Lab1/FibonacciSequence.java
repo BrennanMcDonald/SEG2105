@@ -41,27 +41,15 @@ public class FibonacciSequence extends Sequence{
       return current_element;
    }
    public int get_element_by_index(int index){
-      if (Math.abs(index-0) < Math.abs(index-indx)){
-         reset();
-         for(int i = 0; i < index; i++){
-            get_next_element();
-         }
-      } else {
-         if (indx < index){
-            for(int i = 0; i < Math.abs(index-indx); i++){
-               get_next_element();
-            }
-         } else {
-            for(int i = 0; i < Math.abs(index-indx); i++){
-               get_prev_element();
-            }
-         }
-      }
-      // find out which is closer to the required index: 0 or indx
-      // used the closer index to retrieve the element requested
-      // e.g. if index is 10 and indx is 13, use get_prev_element 3 times (indx-index) to retrieve the element
-      // e.g. if index is 10 and indx is 50, use reset, and get_next_element 10 times
-      return current_element;
+        if (indx >= index) {
+           index = Math.abs(index - indx);
+           while (index-- > 0) this.get_prev_element();
+       } else {
+           index = Math.abs(index - indx);
+           while (index-- > 0) this.get_next_element();
+       }
+
+       return this.get_element();
    }
    public int get_sum_of_elements(int start_index, int end_index){
       // implement this function
