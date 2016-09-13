@@ -12,7 +12,7 @@ public class GeometricSequence extends Sequence {
 
 	public int get_next_element() {
 		indx++;
-		int next = current_element * (int)Math.pow(ratio, indx + 1);
+		int next = current_element * (int)Math.pow(ratio, indx);
 		current_element = next_element;
 		next_element = next;
 		return current_element;
@@ -22,7 +22,7 @@ public class GeometricSequence extends Sequence {
 		indx--;
 		if (indx != 0) {
 			next_element = current_element;
-			current_element = current_element / (int)Math.pow(ratio, indx + 1);
+			current_element = current_element / (int)Math.pow(ratio, indx);
 		}
 		return current_element;
 	}
