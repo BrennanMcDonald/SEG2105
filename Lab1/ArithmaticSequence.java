@@ -1,9 +1,9 @@
 public class ArithmaticSequence extends Sequence {
-    private int diff, xn;
+    private int a, diff, xn;
 
     public ArithmaticSequence(int diff, int initial) {
         this.diff = diff;
-        this.xn = initial;
+        this.a = this.xn = initial;
     }
 
     public int get_element() { return xn; }
@@ -32,9 +32,12 @@ public class ArithmaticSequence extends Sequence {
         return this.get_element();
     }
 
-    public int get_sum_of_elements(int start, int end) {
-        int sum = 0;
-        for (int i = start; i <= end; i += 1) sum += this.get_element_by_index(i);
-        return sum;
+    public int get_sum_of_elements(int y, int x) {
+        x += 1;
+
+        int ax = a + ((x - 1) * diff),
+            ay = a + ((y - 1) * diff);
+
+        return ((x * (a + ax)) - (y * (a + ay))) / 2;
     }
 }
