@@ -1,7 +1,7 @@
-public class ArithmaticTester {
+public class GeometricTester {
     public static void main(String[] args) {
-        int[] values = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38};
-        ArithmaticSequence seq = new ArithmaticSequence(2, 0);
+        int[] values = {2,4,8,16,32,64,128,256,512,1024,2048,4096,8192,16384,32768,65536,131072,262144,524288,1048576};
+        GeometricSequence seq = new GeometricSequence(2, 2);
 
         // get_next_element() tests
         for (int i = 0; i < (values.length - 1); i ++) {
