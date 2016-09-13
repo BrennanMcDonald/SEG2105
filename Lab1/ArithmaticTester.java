@@ -1,11 +1,11 @@
 public class ArithmaticTester {
     public static void main(String[] args) {
         int[] values = {0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38};
-        ArithmaticSequence seq = new ArithmaticSequence(2, -2);
+        ArithmaticSequence seq = new ArithmaticSequence(2, 0);
 
         // get_next_element() tests
-        for (int i = 0; i < values.length; i ++) {
-            eql(values[i], seq.get_next_element(), "should get next element");
+        for (int i = 0; i < (values.length - 1); i ++) {
+            eql(values[i+1], seq.get_next_element(), "should get next element");
         }
 
         // get_prev_element() tests
@@ -15,7 +15,19 @@ public class ArithmaticTester {
 
         // get_element_by_index() tests
         for (int i = 0; i < values.length; i ++) {
-            eql(values[i], seq.get_element_by_index(i + 1), "should get specific element");
+            eql(values[i], seq.get_element_by_index(i), "should get specific element");
+        }
+
+        // get_sum_of_elements() tests
+        for (int x = 0; x < values.length; x ++) {
+            for (int y = 1; y < (values.length - x); y ++) {
+                int sum = 0;
+                for (int i = x; i <= (x + y); i ++) {
+                    sum += values[i];
+                }
+
+                eql(sum, seq.get_sum_of_elements(x, x + y), "should compute sum of subset");
+            }
         }
     }
 

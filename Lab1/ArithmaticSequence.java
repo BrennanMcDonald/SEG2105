@@ -33,6 +33,8 @@ public class ArithmaticSequence extends Sequence {
     }
 
     public int get_sum_of_elements(int start, int end) {
-        return 0;
+        int sum = 0;
+        for (int i = start; i <= end; i += 1) sum += this.get_element_by_index(i);
+        return sum;
     }
 }
