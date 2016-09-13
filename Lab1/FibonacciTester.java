@@ -30,5 +30,20 @@ public class FibonacciTester {
             System.out.println("get_element_by_index Error F" + (ii) + " is supposed to be " + ref_Values[ii] + " but " + seq.get_element_by_index(ii)+ " was calculated instead!");            
          }
       }
+
+      // get_sum_of_elements() tests
+        for (int x = 0; x < ref_Values.length; x ++) {
+            for (int y = 1; y < (ref_Values.length - x); y ++) {
+                int sum = 0;
+                for (int i = x; i <= (x + y); i ++) {
+                    sum += ref_Values[i];
+                }
+ 
+                int got = seq.get_sum_of_elements(x, x + y);
+                if (sum != got) {
+                    System.out.format("Error: bad sum between %d and %d: expected %d, got %d\n", x, x + y, sum, got);
+                }
+            }
+        }
    }
 }
