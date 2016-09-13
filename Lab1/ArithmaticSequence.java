@@ -1,12 +1,24 @@
 public class ArithmaticSequence extends Sequence {
     private int diff, xn;
 
-    public ArithmaticSequence(int diff) { this.diff = diff; }
+    public ArithmaticSequence(int diff, int initial) {
+        this.diff = diff;
+        this.xn = initial;
+    }
 
     public int get_element() { return xn; }
 
-    public int get_next_element() { xn += diff; return get_element(); }
-    public int get_prev_element() { xn -= diff; return get_element(); }
+    public int get_next_element() {
+        xn += diff;
+        indx ++;
+        return get_element();
+    }
+
+    public int get_prev_element() {
+        xn -= diff;
+        indx --;
+        return get_element();
+    }
 
     public int get_element_by_index(int index) {
         if (indx >= index) {
