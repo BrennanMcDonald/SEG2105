@@ -1,9 +1,11 @@
 public class GeometricSequence extends Sequence {
 
+	int initial;
 	int current_element, next_element;
 	int ratio;
 
 	public GeometricSequence(int e0, int r) {
+		initial = e0;
 		current_element = e0;
 		next_element = e0 * r;
 		ratio = r;
@@ -39,8 +41,11 @@ public class GeometricSequence extends Sequence {
 	}
 
 	public int get_sum_of_elements(int start, int end) {
-        int sum = 0;
-        for (int i = start; i <= end; i += 1) sum += this.get_element_by_index(i);
-        return sum;
+		int sumEnd = (int)((initial * (1 - Math.pow(ratio, end))) / (1 - ratio));
+		int sumStart = start == 0 ? 0 : (initial * (1 - (int)Math.pow(ratio, start))) / (1 - ratio);
+		
+		System.out.format("sum from 0 to %d is %d, to %d is %d\n", end, sumEnd, start, sumStart);
+
+		return sumEnd - sumStart;
     }
 }
