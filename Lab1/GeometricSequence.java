@@ -41,11 +41,9 @@ public class GeometricSequence extends Sequence {
 	}
 
 	public int get_sum_of_elements(int start, int end) {
-		int n = end-start;
-		int startelement = get_element_by_index(start);
+		int sumEnd = (int)((initial * (1 - Math.pow(ratio, end + 1))) / (1 - ratio));
+		int sumStart = start == 0 ? 0 : (int)((initial * (1 - Math.pow(ratio, start))) / (1 - ratio));
 
-		int sum = startelement * ((1-((int)Math.pow(ratio, n+1)))/(1-ratio));
-		
-		return sum;
+		return sumEnd - sumStart;
     }
 }
