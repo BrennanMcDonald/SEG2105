@@ -12,18 +12,13 @@ public class GeometricSequence extends Sequence {
 
 	public int get_next_element() {
 		indx++;
-		int next = current_element * (int)Math.pow(ratio, indx);
-		current_element = next_element;
-		next_element = next;
+		current_element *= ratio;
 		return current_element;
 	}
 
 	public int get_prev_element() {
 		indx--;
-		if (indx != 0) {
-			next_element = current_element;
-			current_element = current_element / (int)Math.pow(ratio, indx);
-		}
+		current_element /= ratio;
 		return current_element;
 	}
 
@@ -43,13 +38,9 @@ public class GeometricSequence extends Sequence {
 		return this.get_element();
 	}
 
-	public int get_sum_of_elements(int start_index, int end_index) {
-		int sum = 0;
-		get_element_by_index(start_index);
-		for (int i = 0; i < end_index; i++) {
-			sum += current_element;
-			get_next_element();
-		}
-		return sum;
-	}
+	public int get_sum_of_elements(int start, int end) {
+        int sum = 0;
+        for (int i = start; i <= end; i += 1) sum += this.get_element_by_index(i);
+        return sum;
+    }
 }
