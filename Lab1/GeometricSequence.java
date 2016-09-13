@@ -1,20 +1,18 @@
 public class GeometricSequence extends Sequence {
 
 	int current_element, next_element;
+	int ratio;
 
-	public GeometricSequence() {
-		current_element = (1 / 2);
-		next_element = (1 / 4);
-	}
-	public GeometricSequence(int e0, int e1) {
+	public GeometricSequence(int e0, int r) {
 		current_element = e0;
-		next_element = e1;
+		next_element = e0 * r;
+		ratio = r;
 	}
 
 
 	public int get_next_element() {
 		indx++;
-		int next = current_element * (1 / 2);
+		int next = current_element * (int)Math.pow(ratio, indx + 1);
 		current_element = next_element;
 		next_element = next;
 		return current_element;
@@ -22,8 +20,10 @@ public class GeometricSequence extends Sequence {
 
 	public int get_prev_element() {
 		indx--;
-		next_element = current_element;
-		current_element = current_element / (1 / 2);
+		if (indx != 0) {
+			next_element = current_element;
+			current_element = current_element / (int)Math.pow(ratio, indx + 1);
+		}
 		return current_element;
 	}
 
